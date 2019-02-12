@@ -1,0 +1,8 @@
+django
+gunicorn
+django-heroku
+Pillow
+django-crispy-forms
+whitenoise
+dj-database-url
+psycopg2-binary
