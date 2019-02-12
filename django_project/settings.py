@@ -92,8 +92,8 @@ DATABASES = {
 }
 
 
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+#db_from_env = dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 
 
 #DATABASE_URL = os.environ['DATABASE_URL']
