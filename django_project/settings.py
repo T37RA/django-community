@@ -11,6 +11,8 @@ import os
 import django_heroku
 import psycopg2
 import dj_database_url
+import django
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,6 +34,7 @@ ALLOWED_HOSTS = ['t3trabl0g.herokuapp.com',
 # Application definition
 
 INSTALLED_APPS = [
+    'disqus',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -166,3 +170,7 @@ EMAIL_HOST = 'smtp.google.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = ''
+
+DISQUS_API_KEY = 'gIIMZgQnBcIEWwboRqA8kapY6qJuVAo4SshkwEPMgGgCT9f0QRpyuWJWyg278ZbJ'
+DISQUS_WEBSITE_SHORTNAME = 't3trabl0g-herokuapp-com'
+SITE_ID = 1
