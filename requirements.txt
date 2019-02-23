@@ -8,3 +8,5 @@ dj-database-url
 psycopg2-binary
 disqus
 api
+docutils-stubs
+django-markupfield

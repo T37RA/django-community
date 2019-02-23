@@ -12,6 +12,8 @@ import django_heroku
 import psycopg2
 import dj_database_url
 import django
+import markdown
+from docutils.core import publish_parts
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,14 +28,17 @@ SECRET_KEY = 'exhlfdat&vfum(-34*c2uroi(($ww(yo$9pv98=e6p^gl(-eoj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['t3ksp0t.me',
-                 'localhost',
-                 ]
+ALLOWED_HOSTS = [
+    't3ksp0t.me',
+    'localhost',
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'markdown',
+    'markupfield',
     'disqus',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
@@ -121,6 +126,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+def render_rest(markup):
+    parts = publish_parts(source=markup, writer_name="html4css1")
+    return parts["fragment"]
 
 
 # Internationalization
